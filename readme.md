@@ -94,6 +94,7 @@ $$- \mathbb{E}\_{x_i \sim p}[\nabla_\theta \log q_\theta(x_i)]$$
 $$= - \mathbb{E}\_{x_i \sim p}[\frac{1}{q_\theta(x_i)} \nabla_\theta q_\theta(x_i)]$$
 
 They clip $q_\theta(x_i)$ to make sure the gradient will not be arbitrarily large.
+
 $$- \mathbb{E}\_{x_i \sim p}[\frac{1}{\max(q_\theta(x_i), \alpha)} \nabla_\theta q_\theta(x_i)]$$
 
 They show that this TrSFT objective has a *mode-seeking* behavior when the model is under-specified.
@@ -104,7 +105,7 @@ REINFORCE is a standard Policy Gradient method, whose gradient is
 
 $$-\mathbb{E}\_{x_i\sim q_\theta}[r_i \nabla_\theta \log q_\theta(x_i)] $$
 
-$r_i$ is the *reward* for sample $x_i$. Ideally, when $p$ is known, the perfect choice of reward is $p(x_i)$, i.e.,
+$r_i$ is the *reward* for sample $x_i$. When $p$ is known, one natural choice of reward is $p(x_i)$, i.e.,
 
 $$-\mathbb{E}\_{x_i\sim q_\theta}[p(x_i) \nabla_\theta \log q_\theta(x_i)] $$
 
